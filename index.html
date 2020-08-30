@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Password Generator" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link href="css/styles.css" rel="stylesheet">
+
+
+    <title>Password Generator</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <header>
+
+            <h1>Password Generator</h1>
+
+        </header>
+
+
+        <div class="card">
+            <div class="card-header">
+                <h2 class="h1-responsive font-weight-bold">
+                    Generate a Password
+                </h2>
+            </div>
+            <div class="card-body">
+
+
+                <div class="col-md-6 col-md-offset-6" style="margin:auto" ;>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <span id="result" placeholder="Your Password Here"></span>
+                                <label for="contact-name"></label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label>Password length</label>
+                            <input type="number" id="length" min='8' max='128' value='8' />
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="md-form">
+
+                                <div class="checkbox">
+                                    <label>Special Characters</label><input type="checkbox" id="specialchar">
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>Numbers</label><input type="checkbox" id="numbers">
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>Uppercase Letters</label><input type="checkbox" id="uppercase">
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>Lowercase Letters</label><input type="checkbox" id="lowercase">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <!-- Send button -->
+                        <div class="col-md-6 align-center">
+                            <button id="generate" class="btn btn-block my-4" type="submit"
+                                style="background: #FF69B4!important" onclick="myFunction">Generate
+                                Password</button>
+
+                        </div>
+                    </div>
+
+                    <script>
+                        function myFunction() {
+                            document.getElementById("myForm").submit();
+                        }
+                    </script>
+
+
+                </div>
+                <!-- Wrapper -->
+
+
+
+                <script src="js/ArrayList.js"></script>
+                <script src="js/script.js"></script>
+
+
+
+</body>
+
+</html>
