@@ -1,26 +1,4 @@
 
-//create each object
-var randomFunc = {
-    lower: getRandomLower,
-    upper: getRandomUpper,
-    numeric: getRandomNumeric,
-    special: getRandomSpecialCharacter
-}
-
-
-//get info from the element that has the ID attribute
-var specialElement = document.getElementById('specialchar');
-var numericElement = document.getElementById('numbers');
-var lowercaseElement = document.getElementById('lowercase');
-var uppercaseElement = document.getElementById('uppercase');
-
-var resultElement = document.getElementById('result');
-var lengthElement = document.getElementById('length');
-
-var generateElement = document.getElementById('generate');
-
-
-
 //get random function for each array
 function getRandomLower() {
     var lowerLength = lowerCasedCharacters.length;
@@ -40,16 +18,24 @@ function getRandomNumeric() {
     return randomNumeric;
 }
 
-function getRandomSpecialCharacter() {
+function getRandomSpecial() {
     var specialLength = specialCharacters.length;
     var specialRandom = specialCharacters[Math.floor(Math.random() * specialLength)];
     return specialRandom;
 }
 
 
+//create each object to checked/unchecked variables
+var randomFunction = {
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    numeric: getRandomNumeric,
+    special: getRandomSpecial
+}
 
 //algorithm for password
 function generatePassword(lower, upper, numeric, special, length) {
+
 
     //initiliaze password variable
     var generatedPassword = '';
@@ -57,19 +43,23 @@ function generatePassword(lower, upper, numeric, special, length) {
     //count the number of unchecked items
     var userCheckBox = special + numeric + lower + upper;
 
-    //create array object and filter for checked variables (true)
+    console.log("-----------------------------------");
+    console.log(userCheckBox);
+    console.log("-----------------------------------");
+
+    //create array object and filter out for checked / unchecked variables 
     var objectArray = [{ special }, { numeric }, { lower }, { upper }].filter(item => Object.values(item)[0]);
 
-    // Doesn't have a selected type
+    // conditional for unchecked box
     if (userCheckBox === 0) {
         return '';
     }
 
-    // create a loop
+    // create a loop over length to call a generator function for each type (checked)
     for (var i = 0; i < length; i += userCheckBox) {
         objectArray.forEach(type => {
-            var funcName = Object.keys(type)[0];
-            generatedPassword += randomFunc[funcName]();
+            var functionName = Object.keys(type)[0];
+            generatedPassword += randomFunction[functionName]();
         });
     }
 
@@ -77,6 +67,19 @@ function generatePassword(lower, upper, numeric, special, length) {
 
     return password;
 }
+
+
+//get info from the element that has the ID attribute
+var specialElement = document.getElementById('specialchar');
+var numericElement = document.getElementById('numbers');
+var lowercaseElement = document.getElementById('lowercase');
+var uppercaseElement = document.getElementById('uppercase');
+
+var resultElement = document.getElementById('result');
+var lengthElement = document.getElementById('length');
+
+var generateElement = document.getElementById('generate');
+
 
 
 // Add event listener to generate button
