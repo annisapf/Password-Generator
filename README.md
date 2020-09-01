@@ -12,6 +12,7 @@ This is a *Password Generator* project in HTML, CSS,Bootstrap and Javascript.
 * [GetBootstrap] (https://getbootstrap.com/) - Open-source CSS framework directed at responsive, mobile-first front-end web development. 
 
 ## Screenshot
+![Password-Generator](https://user-images.githubusercontent.com/7066137/91825491-b5018980-ec7f-11ea-8774-cc6910355898.png)
 
 ### Link to the App
 <a href="https://annisapf.github.io/Password-Generator/">The URLs of the deployed applications in GitHub</a><hr>
