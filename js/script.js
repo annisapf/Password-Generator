@@ -1,95 +1,109 @@
+//Assignment code 
+var generateBtn = document.querySelector("#generate");
 
-//get random function for each array
-function getRandomLower() {
-    var lowerLength = lowerCasedCharacters.length;
-    var randomLower = lowerCasedCharacters[Math.floor(Math.random() * lowerLength)];
-    return randomLower;
+generateBtn.addEventListener("click", generatePassword);
+
+
+// Retrieve the DOM object
+var cbSpecialChar = document.querySelector("#specialchar");
+var cbNumbers = document.querySelector("#numbers");
+var cbUpperCase = document.querySelector("#uppercase");
+var cbLowerCase = document.querySelector("#lowercase");
+
+var cbSpecialCharChecked = false;
+var cbNumbersChecked = false;
+var cbUpperCasedChecked = false;
+var cbLowerCaseChecked = false;
+
+//checkbox event handler
+cbSpecialChar.addEventListener("click", setSpecialChar);
+cbNumbers.addEventListener("click", setNumbers);
+cbUpperCase.addEventListener("click", setUpperCase);
+cbLowerCase.addEventListener("click", setLowerCase);
+
+//function to handle checkbox action
+function setSpecialChar() {
+    cbSpecialCharChecked = cbSpecialChar.checked;
+}
+function setNumbers() {
+    cbNumbersChecked = cbNumbers.checked;
+}
+function setUpperCase() {
+    cbUpperCasedChecked = cbUpperCase.checked;
+}
+function setLowerCase() {
+    cbLowerCaseChecked = cbLowerCase.checked;
 }
 
-function getRandomUpper() {
-    var upperLength = upperCasedCharacters.length;
-    var randomUpper = upperCasedCharacters[Math.floor(Math.random() * upperLength)];
-    return randomUpper;
-}
+//function to shuffle array to generate random output
+function shuffle(arrayShuffle) {
+    var counter = arrayShuffle.length;
+    var temp = null;
+    var index = 0;
 
-function getRandomNumeric() {
-    var numericLength = numericCharacters.length;
-    var randomNumeric = numericCharacters[Math.floor(Math.random() * numericLength)]
-    return randomNumeric;
-}
-
-function getRandomSpecial() {
-    var specialLength = specialCharacters.length;
-    var specialRandom = specialCharacters[Math.floor(Math.random() * specialLength)];
-    return specialRandom;
-}
-
-
-//create each object to checked/unchecked variables
-var randomFunction = {
-    lower: getRandomLower,
-    upper: getRandomUpper,
-    numeric: getRandomNumeric,
-    special: getRandomSpecial
-}
-
-//algorithm for password
-function generatePassword(lower, upper, numeric, special, length) {
-
-
-    //initiliaze password variable
-    var generatedPassword = '';
-
-    //count the number of unchecked items
-    var userCheckBox = special + numeric + lower + upper;
-
-    console.log("-----------------------------------");
-    console.log(userCheckBox);
-    console.log("-----------------------------------");
-
-    //create array object and filter out for checked / unchecked variables 
-    var objectArray = [{ special }, { numeric }, { lower }, { upper }].filter(item => Object.values(item)[0]);
-
-    // conditional for unchecked box
-    if (userCheckBox === 0) {
-        return '';
+    //while there are elements in the array
+    while (counter > 0) {
+        //pick a random index
+        index = Math.floor(Math.random() * counter);
+        //decrease counter by 1
+        counter--;
+        //swap the last element
+        temp = arrayShuffle[counter];
+        arrayShuffle[counter] = arrayShuffle[index];
+        arrayShuffle[index] = temp;
     }
-
-    // create a loop over length to call a generator function for each type (checked)
-    for (var i = 0; i < length; i += userCheckBox) {
-        objectArray.forEach(type => {
-            var functionName = Object.keys(type)[0];
-            generatedPassword += randomFunction[functionName]();
-        });
-    }
-
-    var password = generatedPassword.slice(0, length);
-
-    return password;
+    return arrayShuffle;
 }
 
+//algorithm for password 
+function generatePassword() {
+    //check the length of password and change into integer
+    var passwordLength = document.querySelector("#length").value;
+    var passwordLength = parseInt(passwordLength);
 
-//get info from the element that has the ID attribute
-var specialElement = document.getElementById('specialchar');
-var numericElement = document.getElementById('numbers');
-var lowercaseElement = document.getElementById('lowercase');
-var uppercaseElement = document.getElementById('uppercase');
+    var spin = 0;
+    var characters = [];
+    //while loop to generate password from checked box
+    while (spin < passwordLength) {
 
-var resultElement = document.getElementById('result');
-var lengthElement = document.getElementById('length');
+        if (cbSpecialCharChecked) {
+            var arrayLength = specialCharacters.length;
+            var randomSpecialCase = specialCharacters[Math.floor(Math.random() * arrayLength)];
+            characters.push(randomSpecialCase);
+            spin = characters.length;
+            if (spin >= passwordLength)
+                break;
+        }
 
-var generateElement = document.getElementById('generate');
+        if (cbNumbersChecked) {
+            var arrayLength = numericCharacters.length;
+            var randomNumeric = numericCharacters[Math.floor(Math.random() * arrayLength)];
+            characters.push(randomNumeric);
+            spin = characters.length;
+            if (spin >= passwordLength)
+                break;
+        }
 
+        if (cbLowerCaseChecked) {
+            var arrayLength = lowerCasedCharacters.length;
+            var randomLower = lowerCasedCharacters[Math.floor(Math.random() * arrayLength)];
+            characters.push(randomLower);
+            spin = characters.length;
+            if (spin >= passwordLength)
+                break;
+        }
 
-
-// Add event listener to generate button
-generate.addEventListener('click', () => {
-    var length = +lengthElement.value;
-    var hasLower = lowercaseElement.checked;
-    var hasUpper = uppercaseElement.checked;
-    var hasNumeric = numericElement.checked;
-    var hasSpecial = specialElement.checked;
-
-    resultElement.innerText = generatePassword(hasLower, hasUpper, hasNumeric, hasSpecial, length);
-});
-
+        if (cbUpperCasedChecked) {
+            var arrayLength = upperCasedCharacters.length;
+            var randomUpper = upperCasedCharacters[Math.floor(Math.random() * arrayLength)];
+            characters.push(randomUpper);
+            spin = characters.length;
+            if (spin >= passwordLength)
+                break;
+        }
+    }
+    characters = shuffle(characters);
+    passwordString = characters.join("");
+    console.log(passwordString);
+    document.querySelector("#result_password").value = passwordString;
+}

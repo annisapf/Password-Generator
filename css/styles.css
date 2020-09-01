@@ -103,7 +103,7 @@ button[disabled] {
 	justify-content: space-between;
 }
 
-#result {
+#result_password {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
