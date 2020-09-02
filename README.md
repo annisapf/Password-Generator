@@ -11,21 +11,21 @@ SO THAT I can create a strong password that provides greater security
 
 
 ## Acceptance Criteria
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of checkboxes for password criteria
-WHEN check for password criteria
-THEN I select which criteria to include in the password
-WHEN choose for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN check for character types to include in the password
-THEN I choose lowercase, uppercase, numeric, and/or special characters
-WHEN I check each box
-THEN my input should be validated and at least one character type should be selected
-WHEN all checkbox are checked
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is written to the textarea displayed
+* GIVEN I need a new, secure password
+* WHEN I click the button to generate a password
+* THEN I am presented with a series of checkboxes for password criteria
+* WHEN check for password criteria
+* THEN I select which criteria to include in the password
+* WHEN choose for the length of the password
+* THEN I choose a length of at least 8 characters and no more than 128 characters
+* WHEN check for character types to include in the password
+* THEN I choose lowercase, uppercase, numeric, and/or special characters
+* WHEN I check each box
+* THEN my input should be validated and at least one character type should be selected
+* WHEN all checkbox are checked
+* THEN a password is generated that matches the selected criteria
+* WHEN the password is generated
+* THEN the password is written to the textarea displayed
 
 ## Build With
 * [VScode] (http://code.visualstudio.com/) - The editor of choice.
