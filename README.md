@@ -2,9 +2,9 @@
 This is a *Password Generator* project in HTML, CSS,Bootstrap and Javascript. 
 
 ## Goal 
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
+<p>AS AN employee with access to sensitive data. I WANT to randomly generate a password that meets certain criteria. SO THAT I can create a strong password that provides greater security.</p>
+
+<p>Given information above, we know that the most important factor in generating a strong random passwords is to make a long, unique, random strings of characters (combination of symbol, number, lowercase and uppercase). This might help us to generate a strong, unguessable and informed choice one.</p>
 
 ## Contents
 <p>The app has only 1 page which is index.html. In order to make it easier to work with, there are 2 Javascript files : the first one, ArrayList.js for list of arrays and the second one, script.js, for algorithm of password. And of course, styles.css for styling the app.</p>
