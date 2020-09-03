@@ -4,7 +4,7 @@ This is a *Password Generator* application that generates a random password base
 ## Goal 
 <p>AS AN employee with access to sensitive data. I WANT to randomly generate a password that meets certain criteria. SO THAT I can create a strong password that provides greater security.</p>
 
-<p>Given information above, we know that the most important factor in generating a strong random passwords is to make a long, unique, random strings of characters (combination of symbol, number, lowercase and uppercase). This might help us to generate a strong, unguessable and low-risk choosen one.</p>
+<p>A strong password provides essential protection from financial fraud and identity theft since most of our important transactions happen over internet. Hackers usually break into computers, applications, website by guessing passwords. The most important factor in generating a strong random passwords is to make a long, unique, random strings of characters (combination of symbol, number, lowercase and uppercase). This might help us to generate a strong, unguessable with great security.</p>
 
 ## Contents
 <p>The app has only 1 page which is index.html. In order to make it easier to work with, there are 2 Javascript files : the first one, ArrayList.js for list of arrays and the second one, script.js, for algorithm of password. And of course, styles.css for styling the app.</p>
